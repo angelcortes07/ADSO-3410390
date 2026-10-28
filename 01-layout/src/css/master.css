@@ -3,6 +3,7 @@
 
 
 body {
+
     align-items: center;
     background: linear-gradient(45deg, crimson, black);
     color: #fff9;
@@ -26,6 +27,7 @@ body {
         transform: scale(.8);
         transition: all 0.4s ease-in;
         width: 40px;
+
         &:hover {
             transform: scale(1.1);
             opacity: 1;
@@ -33,36 +35,106 @@ body {
     }
 
     &.mainmenu.layout {
-         background: linear-gradient(45deg, orchid, black);
-         main {
+        background: linear-gradient(45deg, orchid, black);
+
+        main {
             header {
                 h1 {
                     margin: 0;
                 }
+
                 h3 {
                     font-weight: 200;
                 }
+
                 img {
                     background-color: #0003;
                 }
             }
+
             menu {
                 gap: 0.4rem;
+
                 a:is(:link, :visited) {
                     span {
                         background-color: orchid;
                     }
+
                     aside {
                         h3 {
                             font-size: 1rem;
                         }
                     }
+
                     &:is(:hover) {
                         background-color: orchid;
+
+                    }
+
+                    body {
+                        background-color: teal;
+                    }
+
+                    button#mburger {
+                        position: relative;
+                        width: 50px;
+                        height: 44px;
+                        background: none;
+                        border: none;
+                        appearance: none;
+                        transform: scale(.8);
+                        cursor: pointer;
+
+                        &:focus:not(:focus-visible) {
+                            outline: none;
+                        }
+
+                        span {
+                            position: absolute;
+                            width: 100%;
+                            height: 3px;
+                            background: #fff;
+                            border-radius: 3px;
+
+                            &:nth-of-type(1) {
+                                top: 0;
+                                left: 0;
+                                transition: top .3s;
+                            }
+
+                            &:nth-of-type(2) {
+                                top: 20px;
+                                left: 0;
+                                transition: opacity .3s;
+                            }
+
+                            &:nth-of-type(3) {
+                                bottom: 0;
+                                left: 0;
+                                transition: bottom .3s;
+                            }
+                        }
+
+                        &.active span:nth-of-type(1) {
+                            top: 20px;
+                            transform: rotate(-45deg);
+                            transition: top .3s cubic-bezier(.36, -.42, .68, -.56), transform .3s .3s;
+                        }
+
+                        &.active span:nth-of-type(2) {
+                            opacity: 0;
+                            transition: opacity .05s .3s;
+                        }
+
+                        &.active span:nth-of-type(3) {
+                            bottom: 20px;
+                            transform: rotate(45deg);
+                            transition: bottom .3s cubic-bezier(.36, -.42, .68, -.56), transform .3s .3s;
+                        }
                     }
                 }
             }
-         }
+        }
     }
 
     main {
@@ -71,6 +143,7 @@ body {
         min-width: 380px;
         padding: 1rem;
     }
+
     /* Main Menu */
     &.mainmenu {
         main {
@@ -81,6 +154,7 @@ body {
                     font-weight: 200;
                     text-align: center;
                 }
+
                 img {
                     border: 4px solid #fff9;
                     border-radius: 50%;
@@ -91,23 +165,27 @@ body {
                     object-position: top;
                     width: 280px;
                 }
+
                 h2 {
                     font-weight: 500;
                     margin: 0;
                     text-transform: uppercase;
                     text-align: center;
                 }
+
                 h3 {
                     font-weight: 400;
                     margin: 0;
                     text-align: center;
                 }
+
                 h4 {
                     font-weight: 300;
                     font-size: 0.8rem;
                     margin: 0;
                     text-align: center;
                 }
+
                 h5 {
                     font-size: 0.8rem;
                     font-weight: 500;
@@ -115,6 +193,7 @@ body {
                     text-align: center;
                 }
             }
+
             menu {
                 align-items: center;
                 display: flex;
@@ -122,6 +201,7 @@ body {
                 gap: 1rem;
                 justify-content: center;
                 padding: 0;
+
                 a:is(:link, :visited) {
                     align-items: center;
                     background-color: #0009;
@@ -129,13 +209,15 @@ body {
                     color: #fffc;
                     display: flex;
                     padding: 0.6rem;
-                    text-decoration:none;
+                    text-decoration: none;
                     transition: all 0.4s ease-in;
                     width: 320px;
+
                     &:is(:hover) {
                         background-color: crimson;
                         transform: scale(1.04) translateX(18px);
                     }
+
                     span {
                         align-items: center;
                         background-color: crimson;
@@ -147,20 +229,24 @@ body {
                         transition: all 0.4s ease-in;
                         width: 60px;
                     }
+
                     &:hover span {
                         background-color: #0009;
                     }
+
                     aside {
                         margin-left: 0.6rem;
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
                         align-items: start;
+
                         h3 {
                             margin: 0;
                             font-size: 1.6rem;
                             font-weight: 400;
                         }
+
                         small {
                             color: #fff6;
                             font-size: 0.8rem;
