@@ -6,7 +6,6 @@
     <title>Solo Leveling</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- ❌ Eliminado: href="../../src/css/index.html" (apuntaba a un HTML, no a un CSS) -->
 
     <style>
         :root {
@@ -23,6 +22,7 @@
             font-family: var(--font); color: var(--text);
             background: radial-gradient(900px 500px at 50% -10%, rgba(0, 100, 255, 0.25), transparent 70%), radial-gradient(600px 400px at 100% 100%, rgba(0, 180, 255, 0.12), transparent 70%), var(--bg-0);
             min-height: 100vh; line-height: 1.6; overflow-x: hidden;
+            min-width: 1200px; /* Ancho mínimo para escritorio */
         }
         img { display: block; max-width: 100%; }
         a { text-decoration: none; color: inherit; }
@@ -31,7 +31,7 @@
         /* NAVBAR */
         .navbar {
             position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between;
-            gap: 2rem; padding: 1rem clamp(1rem, 4vw, 3rem); background: rgba(0, 14, 32, 0.85);
+            gap: 2rem; padding: 1rem 3rem; background: rgba(0, 14, 32, 0.85);
             backdrop-filter: blur(12px); border-bottom: 1px solid var(--line);
         }
         .brand { display: flex; align-items: center; gap: 0.9rem; }
@@ -55,7 +55,7 @@
 
         /* HERO */
         .hero {
-            max-width: var(--max); margin: 0 auto; padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 4vw, 3rem);
+            max-width: var(--max); margin: 0 auto; padding: 6rem 3rem;
             display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 3rem;
         }
         .eyebrow {
@@ -63,7 +63,7 @@
             border: 1px solid var(--line); padding: 0.3rem 0.8rem; border-radius: 999px; margin-bottom: 1.2rem;
         }
         .hero-content h1 {
-            font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 900; line-height: 1; letter-spacing: 2px;
+            font-size: 4rem; font-weight: 900; line-height: 1; letter-spacing: 2px;
             text-transform: uppercase; color: #fff; text-shadow: 0 0 30px rgba(0, 180, 255, 0.4);
         }
         .hero-content h1 span {
@@ -92,19 +92,19 @@
             filter: blur(30px); z-index: 0;
         }
         .hero-figure img {
-            position: relative; z-index: 1; width: min(100%, 360px); aspect-ratio: 3 / 4;
+            position: relative; z-index: 1; width: 360px; aspect-ratio: 3 / 4;
             object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line);
             box-shadow: 0 20px 50px rgba(0, 100, 255, 0.35);
-            background: var(--panel); /* fallback si la imagen falla */
+            background: var(--panel);
         }
         .hero-figure figcaption { font-size: 0.75rem; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
 
         /* SECCIONES */
-        .section { max-width: var(--max); margin: 0 auto; padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 3rem); }
+        .section { max-width: var(--max); margin: 0 auto; padding: 5rem 3rem; }
         .section-head { margin-bottom: 2.5rem; }
         .section-tag { font-size: 0.7rem; letter-spacing: 5px; color: var(--cyan-lt); font-weight: 700; }
         .section-head h2 {
-            font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: 3px; text-transform: uppercase;
+            font-size: 2.2rem; letter-spacing: 3px; text-transform: uppercase;
             font-weight: 900; margin-top: 0.4rem; position: relative; padding-left: 1rem;
         }
         .section-head h2::before {
@@ -112,9 +112,9 @@
             width: 4px; height: 85%; background: linear-gradient(180deg, var(--cyan-lt), var(--cyan)); box-shadow: var(--glow);
         }
         .grid { display: grid; gap: 1.5rem; }
-        .cards { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
-        .episodes { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-        .location { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .cards { grid-template-columns: repeat(4, 1fr); }
+        .episodes { grid-template-columns: repeat(2, 1fr); }
+        .location { grid-template-columns: repeat(2, 1fr); }
 
         /* TARJETAS Y EPISODIOS */
         .card, .episode {
@@ -153,13 +153,6 @@
 
         /* FOOTER */
         .footer { margin-top: 3rem; padding: 2rem; border-top: 1px solid var(--line); text-align: center; color: var(--muted); font-size: 0.78rem; }
-
-        @media (max-width: 900px) {
-            .navbar { flex-direction: column; align-items: flex-start; }
-            .hero { grid-template-columns: 1fr; text-align: center; }
-            .hero-actions { justify-content: center; }
-            .hero-figure { order: -1; }
-        }
     </style>
 </head>
 <body>
@@ -196,8 +189,7 @@
             </div>
         </div>
         <figure class="hero-figure">
-            <!-- IMAGEN HERO: cambia el "src" por tu imagen (URL o ruta local) -->
-            <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600&h=800&fit=crop" alt="Sung Jin-woo">
+            <img src="https://es.web.img3.acsta.net/pictures/22/07/04/11/16/5955834.jpg" alt="Sung Jin-woo">
             <figcaption>El Monarca de las Sombras</figcaption>
         </figure>
     </header>
@@ -211,8 +203,7 @@
         <div class="grid cards">
             <article class="card">
                 <div class="card-media">
-                    <!-- IMAGEN: Sung Jin-woo -->
-                    <img src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=400&h=400&fit=crop" alt="Sung Jin-woo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK5Sfp_bHfg9ezpjfEZfWZbv-EJf49XoDaoTTK2IcqiA&s=10" alt="Sung Jin-woo">
                     <span class="badge">S</span>
                 </div>
                 <div class="card-body">
@@ -222,8 +213,7 @@
             </article>
             <article class="card">
                 <div class="card-media">
-                    <!-- IMAGEN: Cha Hae-in -->
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop" alt="Cha Hae-in">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQminJPnwrNj4Ub9BEmAFzdqStgJbPZwZdMqjPrlWNu1w&s=10" alt="Cha Hae-in">
                     <span class="badge">S</span>
                 </div>
                 <div class="card-body">
@@ -233,8 +223,7 @@
             </article>
             <article class="card">
                 <div class="card-media">
-                    <!-- IMAGEN: Yoo Jin-ho (faltaba) -->
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Yoo Jin-ho">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt5mhRqusbtwDYKAiv-Q4_9gkyFdBf52hTP_sf3Xionw&s=10" alt="Yoo Jin-ho">
                     <span class="badge">D</span>
                 </div>
                 <div class="card-body">
@@ -244,8 +233,7 @@
             </article>
             <article class="card">
                 <div class="card-media">
-                    <!-- IMAGEN: Go Gunhee -->
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop" alt="Go Gunhee">
+                    <img src="data:image/jpeg;base64,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" alt="Go Gunhee">
                     <span class="badge">A</span>
                 </div>
                 <div class="card-body">
@@ -264,13 +252,13 @@
         </header>
         <div class="grid location">
             <figure class="map">
-                <!-- IMAGEN: Gate / Portal -->
-                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&h=600&fit=crop" alt="Gate">
+                <img src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2025/03/solo-leveling-japans-plan.jpg?q=70&fit=crop&w=825&dpr=1" alt="Gate">
                 <figcaption>Gate de Rango S</figcaption>
             </figure>
             <div class="map map-empty">
                 <i class="fa-solid fa-map-location-dot"></i>
-                <span>Mapa no disponible</span>
+        
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZkpFMkon3HxKHXhYO6cxO0E07ZxBShkZo0aSUTxnX7w&s=10" alt="Mapa no disponible">
             </div>
         </div>
     </section>
@@ -284,8 +272,7 @@
         <div class="grid episodes">
             <article class="episode">
                 <div class="episode-media">
-                    <!-- IMAGEN: Episodio 1 -->
-                    <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=600&h=400&fit=crop" alt="Episodio 1">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXZMYykrQkZSdE-Ib0id2yg07cb-MJ2nLz1cITwMalLw&s=10" alt="Episodio 1">
                     <span class="episode-num">1–8</span>
                 </div>
                 <div class="episode-body">
@@ -295,8 +282,7 @@
             </article>
             <article class="episode">
                 <div class="episode-media">
-                    <!-- IMAGEN: Episodio 2 -->
-                    <img src="https://images.unsplash.com/photo-1618336753974-aae8e04506aa?w=600&h=400&fit=crop" alt="Episodio 2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhNL1L3tnQNbOL9j8JNR8lCDZBco2TsHZjAEsEUUyxEQ&s=10" alt="Episodio 2">
                     <span class="episode-num">5–8</span>
                 </div>
                 <div class="episode-body">
